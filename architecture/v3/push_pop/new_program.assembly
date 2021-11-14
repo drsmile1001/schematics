@@ -1,0 +1,9 @@
+label start
+cpy in _ r0
+jnei r0 0 push
+label pull
+cpy stk _ out
+jmp _ _ start
+label push
+cpy r0 _ stk
+jmp _ _ start

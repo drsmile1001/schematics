@@ -1,0 +1,16 @@
+expect r1 1
+imm 1 r1
+expect r2 2
+imm 2 r2
+expect r3 3
+imm 3 r3
+expect r4 4
+imm 4 r4
+expect r5 5
+imm 5 r5
+expect r6 6
+imm 6 r6
+expect r2 1
+cpy r1 r2
+expect r3 1
+cpy r1 r3

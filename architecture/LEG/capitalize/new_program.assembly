@@ -1,0 +1,9 @@
+const char r1
+label on_white
+cpy in _ char
+subi char 32 out
+label on_char
+cpy in _ char
+cpy char _ out
+jeqi char 32 on_white
+jmp _ _ on_char

@@ -1,0 +1,8 @@
+1
+copy_r0_r2
+label start
+out_r1
+add
+copy_r3_r1
+start
+jump

@@ -1,0 +1,20 @@
+expect r0 3
+imm 3 _ r0
+expect r1 1
+imm 1 _ r1
+expect r2 4
+add r0 r1 r2
+expect r2 2
+sub r0 r1 r2
+expect r2 1
+and r0 r1 r2
+expect r2 3
+or r0 r1 r2
+expect r2 252
+not r0 _ r2
+expect r2 2
+xor r0 r1 r2
+expect r2 6
+shl r0 _ r2
+expect r2 3
+shr r2 _ r2

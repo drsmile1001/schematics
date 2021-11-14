@@ -1,0 +1,31 @@
+const reminder r0
+const divisor r1
+const quotient r2
+const partial_quotient r3
+const quotient_MAX 128
+cpy in _ reminder
+cpy in _ divisor
+imm 1 _ partial_quotient
+label check_max_quotient_bit
+shl divisor _ divisor
+shl partial_quotient _ partial_quotient
+jlt reminder divisor shift_back_max_bit
+jgei divisor quotient_MAX accept_max_bit
+jmp _ _ check_max_quotient_bit
+label shift_back_max_bit
+shr partial_quotient _ partial_quotient
+shr divisor _ divisor
+label accept_max_bit
+add quotient partial_quotient quotient
+sub reminder divisor reminder
+label find_next_bit
+shr partial_quotient _ partial_quotient
+jeqi partial_quotient 0 output_result
+shr divisor _ divisor
+jlt reminder divisor find_next_bit
+sub reminder divisor reminder
+or quotient partial_quotient quotient
+jmp _ _ find_next_bit
+label output_result
+cpy quotient _ out
+cpy reminder _ out

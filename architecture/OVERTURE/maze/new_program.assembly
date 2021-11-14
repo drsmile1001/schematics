@@ -1,0 +1,114 @@
+const right 0
+const down 1
+const left 2
+const up 3
+const use 5
+const direct_mask 3
+const right_hand_side_add 1
+const back_add 2
+const left_hand_side_add 3
+const wall 1
+const door 3
+# start direct
+up
+# r5 = going direct
+copy_r0_r5
+
+label check_right_hand_side
+# find out right_hand_side number
+copy_r5_r1
+right_hand_side_add
+copy_r0_r2
+add
+copy_r3_r1
+direct_mask
+copy_r0_r2
+and
+# r4 = right hand side number
+copy_r3_r4
+# check if right hand side is wall
+out_r4
+read_to_r1
+wall
+copy_r0_r2
+sub
+
+# if right hand side is wall, check ahead
+check_ahead
+jump_at_0
+
+# if right hand side is not wall, go right hand side
+use
+out
+out_r4
+copy_r4_r5
+check_right_hand_side
+jump
+
+label check_ahead
+out_r5
+
+# check if ahead is wall
+read_to_r1
+wall
+copy_r0_r2
+sub
+
+# if ahead is wall, check left hand side
+check_left_hand_side
+jump_at_0
+
+use
+out
+out_r5
+check_right_hand_side
+jump
+
+label check_left_hand_side
+# find out left_hand_side number
+copy_r5_r1
+left_hand_side_add
+copy_r0_r2
+add
+copy_r3_r1
+direct_mask
+copy_r0_r2
+and
+
+# r4 = left hand side number
+copy_r3_r4
+
+# check if left hand side is wall
+out_r4
+read_to_r1
+wall
+copy_r0_r2
+sub
+
+# if left hand side is wall go back
+go_back
+jump_at_0
+
+# if left hand side is not wall, go left hand side
+use
+out
+out_r4
+copy_r4_r5
+check_right_hand_side
+jump
+
+label go_back
+# find out back number
+copy_r5_r1
+back_add
+copy_r0_r2
+add
+copy_r3_r1
+direct_mask
+copy_r0_r2
+and
+copy_r3_r5
+out_r5
+out_r5
+check_right_hand_side
+jump

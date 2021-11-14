@@ -1,0 +1,13 @@
+label a
+imm 3 _ r0
+cal _ _ b
+jeqi r0 6 end
+label b
+addi r0 1 r0
+cal _ _ c
+ret _ _ _
+label c
+addi r0 2 r0
+ret _ _ _
+label end
+cpy r0 _ out

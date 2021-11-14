@@ -1,0 +1,13 @@
+read_to_r4
+read_to_r5
+copy_r4_r1
+copy_r5_r2
+or
+copy_r3_r0
+copy_r4_r1
+copy_r5_r2
+nand
+copy_r3_r1
+copy_r0_r2
+and
+out_r3

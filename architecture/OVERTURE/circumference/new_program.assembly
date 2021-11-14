@@ -1,0 +1,19 @@
+5
+copy_r0_r5 # r5 = loop condown
+read_to_r1 # read redius to r1
+label loop_start
+read_to_r2 # read redius to r2
+add
+copy_r3_r4 # r4 = size
+copy_r5_r1 # conding down r5
+1
+copy_r0_r2
+sub #r3 loop condown
+end #set jump target to end
+jump_at_0 #if r3=0 jump to end
+copy_r3_r5 #r5 = loop condown
+copy_r4_r1 #set r1 = size
+loop_start
+jump
+label end
+ouput_r4 #output result

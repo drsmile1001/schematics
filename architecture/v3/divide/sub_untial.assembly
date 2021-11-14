@@ -1,0 +1,13 @@
+const reminder r0
+const divisor r1
+const quotient r2
+cpy in _ reminder
+cpy in _ divisor
+label next
+jlt reminder divisor result
+sub reminder divisor reminder
+addi quotient 1 quotient
+jmp _ _ next
+label result
+cpy quotient _ out
+cpy reminder _ out

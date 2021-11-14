@@ -1,0 +1,31 @@
+# test not jump when r1 = r2
+jlt r1 r2 equal_fail
+jgt r1 r2 equal_fail
+jne r1 r2 equal_fail
+
+expect r0 1
+label equal_fail
+imm 1 _ r0
+# test jump when r1 = r2
+jeq r1 r2 equal_eq
+imm 2 _ r0
+label equal_eq
+jle r1 r2 equal_jle
+imm 2 _ r0
+label equal_jle
+jge r1 r2 equal_jge
+imm 2 _ r0
+label equal_jge
+jmp _ _ equal_jmp
+imm 2 _ r0
+label equal_jmp
+expect r1 1
+imm 1 _ r1
+# test not jump when r1 > r2
+jeq r1 r2 greater_fail
+jlt r1 r2 greater_fail
+jle r1 r2 greater_fail
+
+expect r0 2
+label greater_fail
+imm 2 _ r0
