@@ -1,0 +1,3 @@
+add input input r1
+add r1 r1 r2
+add r1 r2 output
