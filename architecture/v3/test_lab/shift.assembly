@@ -1,0 +1,41 @@
+expect r1 1
+imm 1 r1
+expect r2 2
+shl r1 r2
+expect r2 1
+shli r1 0 r2
+expect r2 2
+shli r1 1 r2
+expect r2 4
+shli r1 2 r2
+expect r2 8
+shli r1 3 r2
+expect r2 16
+shli r1 4 r2
+expect r2 32
+shli r1 5 r2
+expect r2 64
+shli r1 6 r2
+expect r2 128
+shli r1 7 r2
+
+expect r1 128
+imm 128 r1
+expect r2 64
+shr r1 r2
+expect r2 128
+shri r1 0 r2
+expect r2 64
+shri r1 1 r2
+expect r2 32
+shri r1 2 r2
+expect r2 16
+shri r1 3 r2
+expect r2 8
+shri r1 4 r2
+expect r2 4
+shri r1 5 r2
+expect r2 2
+shri r1 6 r2
+expect r2 1
+shri r1 7 r2
