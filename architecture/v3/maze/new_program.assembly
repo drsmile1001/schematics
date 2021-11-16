@@ -1,0 +1,62 @@
+const right 0
+const down 1
+const left 2
+const up 3
+const use 5
+const direct_mask 3
+const right_hand 1
+const back_add 2
+const left_hand 3
+const wall 1
+const door 3
+const direct r1
+const going_direct r5
+const temp r2
+# start direct
+imm up direct
+imm up going_direct
+
+label check_right_hand_side
+# turn right
+addi going_direct right_hand temp
+andi temp direct_mask temp
+cpy temp output
+# if right hand side is wall, check ahead
+jeqi input wall check_ahead
+# if right hand side is not wall, go right
+imm use output
+cpy temp output
+cpy temp going_direct
+jmp check_right_hand_side
+
+label check_ahead
+cpy going_direct output
+# if ahead is wall, check left hand side
+jeqi input wall check_left_hand_side
+imm use output
+cpy going_direct output
+jmp check_right_hand_side
+
+label check_left_hand_side
+# turn right
+addi going_direct left_hand temp
+andi temp direct_mask temp
+cpy temp output
+
+# if left hand side is wall go back
+jeqi input wall go_back
+go_back
+
+# if left hand side is not wall, go left hand side
+imm use output
+cpy temp output
+cpy temp going_direct
+jmp check_right_hand_side
+
+label go_back
+# turn right
+addi going_direct back_add temp
+andi temp direct_mask temp
+cpy temp output
+cpy temp going_direct
+jmp check_right_hand_side

@@ -1,0 +1,20 @@
+const use 5
+const dir r1
+const direct_mask 3
+const wall 1
+label start
+cpy dir output
+imm use output
+
+subi dir 1 dir
+andi dir direct_mask dir
+cpy dir output
+
+label test_wall
+jnei input wall start
+
+addi dir 1 dir
+andi dir direct_mask dir
+
+cpy dir output
+jmp test_wall
