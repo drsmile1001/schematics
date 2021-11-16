@@ -1,0 +1,16 @@
+const up 3
+const wait 4
+const shoot 6
+imm shoot output
+imm up output
+imm up output
+imm up output
+imm up output
+imm up output
+label watch
+jne input 0 has_enemy
+imm wait output
+jmp watch
+label has_enemy
+imm shoot output
+jmp watch
