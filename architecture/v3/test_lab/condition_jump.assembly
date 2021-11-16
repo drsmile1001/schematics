@@ -1,0 +1,97 @@
+# test not jump when r1 = r2 or r1 = imm
+expect r1 7
+imm 7 r1
+expect r2 7
+imm 7 r2
+jlt r1 r2 equal_fail
+jlti r1 7 equal_fail
+jgt r1 r2 equal_fail
+jgti r1 7 equal_fail
+jne r1 r2 equal_fail
+jnei r1 7 equal_fail
+expect r3 1
+label equal_fail
+imm 1 r3
+
+# test jump when r1 = r2 or r1 = imm
+jeq r1 r2 equal_jeq
+imm 2 r3
+label equal_jeq
+jeqi r1 7 equal_jeqi
+imm 2 r3
+label equal_jeqi
+jle r1 r2 equal_jle
+imm 2 r3
+label equal_jle
+jlei r1 7 equal_jlei
+imm 2 r3
+label equal_jlei
+jge r1 r2 equal_jge
+imm 2 r3
+label equal_jge
+jgei r1 7 equal_jgei
+imm 2 r3
+label equal_jgei
+jmp equal_jmp
+imm 2 r3
+label equal_jmp
+
+# test not jump when r1 > r2 or r1 > imm
+expect r1 10
+imm 10 r1
+jeq r1 r2 greater_fail
+jeqi r1 7 greater_fail
+jlt r1 r2 greater_fail
+jlti r1 7 greater_fail
+jle r1 r2 greater_fail
+jlei r1 7 greater_fail
+expect r3 2
+label greater_fail
+imm 2 r3
+
+# test jump when r1 > r2 or r1 > imm
+jne r1 r2 greater_jne
+imm 3 r3
+label greater_jne
+jnei r1 7 greater_jnei
+imm 3 r3
+label greater_jnei
+jgt r1 r2 greater_jgt
+imm 3 r3
+label greater_jgt
+jgti r1 7 greater_jgti
+imm 3 r3
+label greater_jgti
+jmp greater_jmp
+imm 3 r3
+label greater_jmp
+
+# test not jump when r1 < r2 or r1 < imm
+expect r1 4
+imm 4 r1
+jeq r1 r2 less_fail
+jeqi r1 7 less_fail
+jgt r1 r2 less_fail
+jgti r1 7 less_fail
+jge r1 r2 less_fail
+jgei r1 7 less_fail
+expect r3 4
+label less_fail
+imm 4 r3
+
+# test jump when r1 < r2 or r1 < imm
+jne r1 r2 less_jne
+imm 5 r3
+label less_jne
+jnei r1 7 less_jnei
+imm 5 r3
+label less_jnei
+jlt r1 r2 less_jlt
+imm 5 r3
+label less_jlt
+jlti r1 7 less_jlti
+imm 5 r3
+label less_jlti
+jmp less_jmp
+imm 5 r3
+label less_jmp

@@ -1,0 +1,5 @@
+set_input 7
+expect r1 7
+cpy input r1
+expect output 7
+cpy r1 output
