@@ -4,14 +4,8 @@ expect r2 1
 imm 1 r2
 expect r3 4
 add r1 r2 r3
+addi r1 1 r3
 expect r3 2
 sub r1 r2 r3
-expect r3 1
-and r1 r2 r3
-expect r3 3
-or r1 r2 r3
-expect r3 252
-not r1 r3
-expect r3 2
-xor r1 r2 r3
-expect r3 6
+subi1 3 r2 r3
+subi2 r1 1 r3

@@ -1,0 +1,24 @@
+expect r1 5
+imm 5 r1
+expect r2 3
+imm 3 r2
+expect r3 1
+and r1 r2 r3
+andi r1 3 r3
+expect r3 7
+or r1 r2 r3
+ori r1 3 r3
+expect r3 6
+xor r1 r2 r3
+xori r1 3 r3
+expect r3 254
+nand r1 r2 r3
+nandi r1 3 r3
+expect r3 248
+nor r1 r2 r3
+nori r1 3 r3
+expect r3 249
+xnor r1 r2 r3
+xnori r1 3 r3
+expect r3 250
+not r1 r3
