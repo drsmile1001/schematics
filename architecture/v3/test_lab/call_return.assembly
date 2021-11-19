@@ -1,0 +1,14 @@
+expect r1 1
+imm 1 r1
+cal r1_add_1
+jmp end
+label r1_add_1
+expect r1 2
+addi r1 1 r1
+cal r1_add_2
+rtn
+label r1_add_2
+expect r1 4
+addi r1 2 r1
+rtn
+label end
