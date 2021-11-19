@@ -1,4 +1,4 @@
 label start
-SHL io 0 io
-SHR io 0 io
-JMP 0 0 start
+shl input output
+shr input output
+jmp start
