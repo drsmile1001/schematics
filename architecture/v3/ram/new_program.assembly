@@ -1,11 +1,12 @@
-label input
-cpy in _ ram
-jeqi ram_addr 31 output
-addi ram_addr 1 ram_addr
-jmp _ _ input
-label output
-imm 0 _ ram_addr
+const addr r1 
+label load
+wram addr input
+jeqi addr 31 out
+addi addr 1 addr
+jmp load
+label out
+imm 0 addr
 label ouput_next
-cpy ram _ out
-addi ram_addr 1 ram_addr
-jmp _ _ ouput_next
+rram addr output
+addi addr 1 addr
+jmp ouput_next
